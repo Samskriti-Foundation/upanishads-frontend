@@ -1,5 +1,13 @@
+import { Route, Routes } from "react-router"
+import LoginPage from "./pages/LoginPage"
+import ProjectsPage from "./pages/ProjectsPage"
 const App = () => {
-  return <div>Hello World!</div>
+  return (
+    <Routes>
+      <Route element={<LoginPage />} path="/" />
+      <Route element={<ProjectsPage />} path="/p" />
+    </Routes>
+  )
 }
 
 export default App
