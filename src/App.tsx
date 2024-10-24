@@ -1,11 +1,16 @@
-import { Route, Routes } from "react-router"
+import { Navigate, Route, Routes } from "react-router"
 import LoginPage from "./pages/LoginPage"
-import ProjectsPage from "./pages/ProjectsPage"
+import ContentPage from "./pages/ContentPage"
+import PrivateRoutes from "./utils/PrivateRoutes"
+
 const App = () => {
   return (
     <Routes>
       <Route element={<LoginPage />} path="/" />
-      <Route element={<ProjectsPage />} path="/p" />
+      <Route element={<PrivateRoutes />}>
+        <Route element={<Navigate to="/p/isha" />} path="/p" />
+        <Route element={<ContentPage />} path="/p/:project" />
+      </Route>
     </Routes>
   )
 }
